@@ -32,7 +32,7 @@ def _preprocess_image(image, shape=(256, 256)):
     image = image.resize(shape)
     image = img_to_array(image)
     image = np.dstack([image] * 3)
-
+    image = np.expand_dims(image, axis=0).astype('float') / 255.
     return image
 
 
